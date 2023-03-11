@@ -34,7 +34,6 @@ app.post("/register", async (req, res) => {
       username,
       password: bcrypt.hashSync(password, salt),
     });
-    res.send("hello world")
     res.json(userDoc);
   } catch (e) {
     res.status(400).json(e);
@@ -60,6 +59,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/profile", (req, res) => {
+  res.send("hello world")
   const { token } = req.cookies;
   jwt.verify(token, secret, {}, (err, info) => {
     if (err) throw err;
