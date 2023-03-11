@@ -34,6 +34,7 @@ app.post("/register", async (req, res) => {
       username,
       password: bcrypt.hashSync(password, salt),
     });
+    res.send("hello world")
     res.json(userDoc);
   } catch (e) {
     res.status(400).json(e);
