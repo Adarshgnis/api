@@ -15,7 +15,7 @@ const path = require("path");
 const salt = bcrypt.genSaltSync(10);
 const secret = "asdfe45we45w345wegw345werjktjwertkj";
 
-app.use(cors({ credentials: true, origin: true  }));
+app.use(cors({ credentials: true, origin: "https://bright-rolypoly-341d5f.netlify.app/" }));
 
 
 //we need to add middleware, json parser
@@ -62,8 +62,8 @@ app.post("/login", async (req, res) => {
 
 app.get("/profile", (req, res) => {
   const { token } = req.cookies;
+  res.setHeader("Access-Control-Allow-Origin",  "*")  
   jwt.verify(token, secret, {}, (err, info) => {
-      info.setHeader("Access-Control-Allow-Origin",  "*")  
       if (err) throw err;
     res.json(info);
   });
