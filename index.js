@@ -63,7 +63,7 @@ app.post("/login", async (req, res) => {
 app.get("/profile", (req, res) => {
   const { token } = req.cookies;
   jwt.verify(token, secret, {}, (err, info) => {
-      res.setHeader("Access-Control-Allow-Origin",  "*")  
+      info.setHeader("Access-Control-Allow-Origin",  "*")  
       if (err) throw err;
     res.json(info);
   });
