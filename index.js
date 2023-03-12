@@ -15,7 +15,7 @@ const path = require("path");
 const salt = bcrypt.genSaltSync(10);
 const secret = "asdfe45we45w345wegw345werjktjwertkj";
 
-app.use(cors({ credentials: true, origin: "*" }));
+app.use(cors({ credentials: true, origin: "https://bright-rolypoly-341d5f.netlify.app/" }));
 
 
 //we need to add middleware, json parser
